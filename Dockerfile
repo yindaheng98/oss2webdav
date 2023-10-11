@@ -1,4 +1,4 @@
-FROM alpine:3 AS builder
+FROM bytemark/webdav:2.4 AS builder
 RUN apk --update add fuse alpine-sdk automake autoconf libxml2-dev fuse-dev curl-dev && \
     git clone -b v1.80.6 https://github.com/aliyun/ossfs.git && \
     cd ossfs && \
@@ -7,7 +7,7 @@ RUN apk --update add fuse alpine-sdk automake autoconf libxml2-dev fuse-dev curl
     make && \
     make install
 
-FROM yindaheng98/webdav
+FROM bytemark/webdav:2.4
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh && \
     apk --update add fuse curl libxml2 openssl libstdc++ libgcc && \
