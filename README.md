@@ -1,8 +1,6 @@
-# ossfs-webdav
+# oss2webdav
 
 这是一个用ossfs挂载Aliyun OSS到本地目录并转为Webdav的镜像。基于`alpine`。
-
-使用的ossfs版本：[https://github.com/aliyun/ossfs/tree/v1.80.6](https://github.com/aliyun/ossfs/tree/v1.80.6)
 
 ## 使用方法
 
@@ -26,7 +24,7 @@ docker run --cap-add SYS_ADMIN --device /dev/fuse --security-opt apparmor=unconf
 version: "3"
 services:
   ossfs:
-    image: yindaheng98/ossfs-webdav
+    image: yindaheng98/oss2webdav
     restart: always
     cap_add:
       - SYS_ADMIN
